@@ -1,0 +1,34 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Le Piex</title>
+    {% endif %}
+    
+    {% block styles %}
+        {% bootstrap_css %}
+    {% endblock styles %}
+        
+        
+</head>
+<body>
+    
+    {% include 'navbar.html' %}
+    
+    {% block content %}
+        
+    {% endblock content %}
+    
+    
+    {% block javascript %}
+        {% bootstrap_javascript %}
+    {% endblock javascript %}
+        
+</body>
+</html>
