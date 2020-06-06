@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+def user_registration(request):
+
+    title='user_registration'
+    context={
+        'title': title,
+    }
+    return render(request, 'users/registration.html', context)
