@@ -7,3 +7,11 @@ def homepage(request):
         'title':title
     }
     return render(request, 'index.html', context)
+
+def post_project(request):
+
+    title = 'Post Project'
+    context={
+        'title':title,
+    }
+    return render(request, 'post_project.html', context)
