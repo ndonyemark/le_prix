@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from .forms import ProjectRegistrationForm
+from .models import Project
 
 def homepage(request):
-
+    all_projects = Project.get_all_projects()
     title='Homepage'
     context={
-        'title':title
+        'title':title,
+        'projects': all_projects
     }
     return render(request, 'index.html', context)
 

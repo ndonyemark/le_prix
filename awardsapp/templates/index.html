@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+    <div class="container">
+        <div class="row">
+            
+            {% for project in projects %}
+                <div class="col-lg-3 col-md-6">
+                    <div class="card" style="width: 18rem;">
+                        <img src="project.project_image" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{project.project_title}}</h5>
+                          <p class="card-text">{{project.project_description}}</p>
+                          <a href="#" class="btn btn-primary">live_link</a>
+                        </div>
+                      </div>
+                </div>
+            {% endfor %}
+                
+        </div>
+    </div>
 {% endblock content %}
