@@ -11,3 +11,13 @@ class Project(models.Model):
 
     def __str__(self):
         return self.project_title
+    
+    @classmethod
+    def get_user_projects(cls, owner):
+        user_projects = Project.objects.filter(project_owner=owner)
+        return user_projects
+    
+    @classmethod
+    def get_all_projects(cls):
+        all_projects = Project.objects.all()
+        return all_projects
