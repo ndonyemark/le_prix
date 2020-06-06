@@ -12,5 +12,6 @@ def user_registration(request):
     title='user_registration'
     context={
         'title': title,
+        'form': registration_form
     }
     return render(request, 'users/registration.html', context)
