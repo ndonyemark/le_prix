@@ -23,5 +23,6 @@ def post_project(request):
     title = 'Post Project'
     context={
         'title':title,
+        'form': project_registration_form
     }
     return render(request, 'post_project.html', context)
