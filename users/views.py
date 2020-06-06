@@ -10,8 +10,4 @@ def user_registration(request):
     else:
         registration_form = UserRegistrationForm()
     title='user_registration'
-    context={
-        'title': title,
-        'form': registration_form
-    }
-    return render(request, 'users/registration.html', context)
+    return render(request, 'users/registration.html', {'title': title,'form': registration_form})
