@@ -12,7 +12,7 @@ def homepage(request):
 def post_project(request):
     current_user = request.user
     if request.method == 'POST':
-        project_registration_form = ProjectRegistrationForm(request.POST)
+        project_registration_form = ProjectRegistrationForm(request.POST, request.FILES)
         if project_registration_form.is_valid():
             project = project_registration_form.save(commit=False)
             project.project_owner = current_user
