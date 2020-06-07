@@ -21,3 +21,8 @@ class Project(models.Model):
     def get_all_projects(cls):
         all_projects = Project.objects.all()
         return all_projects
+
+    @classmethod
+    def get_single_project(cls, project_id):
+        single_project = Project.objects.get(id=project_id)
+        return single_project
