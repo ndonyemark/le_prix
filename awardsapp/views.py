@@ -38,3 +38,19 @@ def single_project(request, project_id):
         'project': single_project
     }
     return render(request, 'single_project.html', context)
+
+def search(request):
+
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search')
+        searched_item = Project.search_by_article(search_term)
+        message=f'{search_term}'
+        return render(request, 'search.html', { 'message':message, 'search_results':searched_item })
+
+    else:
+        message = f'The {search_term} was not found'
+    title = 'search item'
+    context = {
+        'title':title
+    }
+    return render(request, 'search.html', context)
