@@ -51,6 +51,7 @@ def search(request):
         message = f'The {search_term} was not found'
     title = 'search item'
     context = {
-        'title':title
+        'title':title,
+        'message': message
     }
     return render(request, 'search.html', context)

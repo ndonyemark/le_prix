@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                
+                {% if search_results %}
+                    <p>found{{search_results}} of the seaerched term{{message}}</p>
+                {% else %}
+                    <p>No results of the term {{message}} were found</p>
+                {% endif %}
+                    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{search_results.project_image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{search_results.project_title}}</h5>
+                      <p class="card-text">{{search_results.project_description}}</p>
+                      <a href="#" class="btn btn-primary">live_link</a>
+                      <a href="{% url 'single_project' project_id=project.id %}">view project</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
