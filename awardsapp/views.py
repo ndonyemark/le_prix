@@ -28,3 +28,13 @@ def post_project(request):
         'form': project_registration_form
     }
     return render(request, 'post_project.html', context)
+
+def single_project(request, project_id):
+    single_project = Project.get_single_project(project_id)
+
+    title = single_project.project_title
+    context={
+        'title': title,
+        'project': single_project
+    }
+    return render(request, 'single_project.html', context)
