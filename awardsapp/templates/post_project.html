@@ -3,15 +3,52 @@
 
 {% block content %}
     <div class="container">
+        <div class="row justify-content-center text-center p-5">
+            <div class="col">
+                <h1>SUBMIT YOUR SITE</h1>
+                <p>Every month, <b>more than 2,000,000 unique users</b> who specialize in web design, development and the latest web technologies, visit our site looking for inspiration, trends and talent on the web.</p>
+            </div>
+        </div>
+        <div class="row p-5">
+            <div class="col">
+                <div class="card" style="width: 400px; height:500px">
+                    <div class="card-body">
+                      <h5 class="card-title">Standard</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary btn-block mb-3">Submit Now</a>
+                      <p class="card-text">Your website will be reviewed and voted on by our international jury, made up of some of the best designers, developers and agencies worldwide.</p>
+                      <p><i class="fas fa-times"></i> free submission</p>
+                      <p><i class="fas fa-times"></i> 20% off future submissions</p>
+                      <p><i class="fas fa-times"></i> 20% off future job ads</p>
+                      <p><i class="fas fa-times"></i> Featured profile in your country</p>
+                      <p><i class="fas fa-times"></i> Listed in 3 categories</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 400px; height:500px">
+                    <div class="card-body">
+                      <h5 class="card-title">Professional</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary btn-block mb-3">Submit Now</a>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p>free submissions</p>
+                      <p>20% off future submissions</p>
+                      <p>20% off future job ads</p>
+                      <p>Featured profile in your country</p>
+                      <p>Listed in 3 categories</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <!-- <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form | crispy}}
                     <button type="submit" class="btn btn-success">Post Project</button>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>
 {% endblock content %}
-    
