@@ -26,3 +26,7 @@ class Project(models.Model):
     def get_single_project(cls, project_id):
         single_project = Project.objects.get(id=project_id)
         return single_project
+
+    @classmethod
+    def search_by_article(cls, search_term):
+        search = cls.objects.filter(project_title__icontains=search_term)

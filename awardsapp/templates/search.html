@@ -15,17 +15,24 @@
         </div>
 
         <div class="row">
+            
+            {% if search_results %}
+            
+            {% for result in search_results %}
             <div class="col">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{search_results.project_image.url}}" class="card-img-top" alt="...">
+                    <img src="{{result.project_image.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">{{search_results.project_title}}</h5>
-                      <p class="card-text">{{search_results.project_description}}</p>
+                      <h5 class="card-title">{{result.project_title}}</h5>
+                      <p class="card-text">{{result.project_description}}</p>
                       <a href="#" class="btn btn-primary">live_link</a>
-                      <a href="{% url 'single_project' project_id=project.id %}">view project</a>
                     </div>
                   </div>
             </div>
+            {% endfor %}
+                
+            {% endif %}
+                
         </div>
     </div>
 {% endblock content %}
