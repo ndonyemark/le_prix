@@ -1,22 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
+    <div class="container-fluid">
 
-        <div class="row" style="height: 92.5vh;">
-            <div class="col">
-                <h1>Over 2000000 projects posted in six moths with tonnes of reviews from top designers all over the world</h1>
-                <a href="" class="btn btn-secondary">Submit Project</a>
+        <div class="row" style="height: 92.5vh; width: 100vw;" class="header">
+            <div style="background: url('https://unsplash.it/1200/765.jpg?image=112'); opacity:1.0; filter:brightness(70%); background-size:cover">
+            <div class="col text-center">
+                <div class="content">
+                    <h1 class="">Over 2000000 projects posted in six months with tonnes of reviews from top designers all over the world</h1>
+                <a href="" class="btn btn-secondary btn-lg">Submit Project</a>
+                </div>
             </div>
-        </div>
-
-        <div class="row ">
-            <div class="col ">
-                <h1 class="text-center text-secondary">Current Projects</h1>
             </div>
         </div>
 
         <div class="row">
+            <div class="col ">
+                <h1 class="text-center mt-5">Current Projects</h1>
+            </div>
+        </div>
+
+        <div class="row p-5">
 
             {% for project in projects %}
                 <div class="col-lg-3 col-md-6">

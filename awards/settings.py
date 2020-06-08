@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'awardsapp',
     'users',
     'bootstrap4',
-    'crispy_forms'
+    'crispy_forms',
+    'star_ratings'
 ]
 
 MIDDLEWARE = [
@@ -132,8 +133,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 LOGIN_REDIRECT_URL = 'homepage'
+
+STAR_RATINGS_RANGE = 10
