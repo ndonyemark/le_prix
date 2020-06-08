@@ -2,8 +2,22 @@
 
 {% block content %}
     <div class="container">
+
+        <div class="row" style="height: 92.5vh;">
+            <div class="col">
+                <h1>Over 2000000 projects posted in six moths with tonnes of reviews from top designers all over the world</h1>
+                <a href="" class="btn btn-secondary">Submit Project</a>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col ">
+                <h1 class="text-center text-secondary">Current Projects</h1>
+            </div>
+        </div>
+
         <div class="row">
-            
+
             {% for project in projects %}
                 <div class="col-lg-3 col-md-6">
                     <div class="card" style="width: 18rem;">
