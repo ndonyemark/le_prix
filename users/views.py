@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, ProfileUpdateForm
+from .models import Profile
 
 def user_registration(request):
     if request.method == 'POST':
@@ -13,8 +14,9 @@ def user_registration(request):
     return render(request, 'users/registration.html', {'title': title,'form': registration_form})
 
 def profile(request):
-
-    return render(request, 'users/profile.html', name='profile')
+    current_user = request.user
+    user_profile_data = Profile.get_user_profile_data(current_user)
+    return render(request, 'users/profile.html', {'data': user_profile_data})
 
 def profile_update(request):
     current_user = request.user
