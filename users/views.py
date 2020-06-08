@@ -7,7 +7,7 @@ def user_registration(request):
         registration_form = UserRegistrationForm(request.POST)
         if registration_form.is_valid():
             registration_form.save()
-            return redirect('profile_update')
+            return redirect('login')
     else:
         registration_form = UserRegistrationForm()
     title='user_registration'
@@ -26,7 +26,7 @@ def profile_update(request):
             profile = form.save(commit=False)
             profile.user = current_user
             profile.save()
-            return redirect('login')
+            return redirect('profile')
     else:
         form = ProfileUpdateForm()
     return render(request, 'users/profile_update.html', {'form': form})
