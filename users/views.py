@@ -15,8 +15,8 @@ def user_registration(request):
 
 def profile(request):
     current_user = request.user
-    user_profile_data = Profile.get_user_profile_data(current_user)
-    return render(request, 'users/profile.html', {'data': user_profile_data})
+    # user_profile_data = Profile.get_user_profile_data(current_user)
+    return render(request, 'users/profile.html')
 
 def profile_update(request):
     current_user = request.user

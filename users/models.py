@@ -6,6 +6,6 @@ class Profile(models.Model):
     profile_bio = models.TextField()
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    @classmethod
-    def get_user_profile_data(cls, user_name):
-        user_data = Profile.objects.get(user = user_name)
+    # @classmethod
+    # def get_user_profile_data(cls, user_name):
+    #     user_data = Profile.objects.get(user=user_name)
