@@ -30,3 +30,8 @@ class Project(models.Model):
     @classmethod
     def search_by_article(cls, search_term):
         search = cls.objects.filter(project_title__icontains=search_term)
+
+class ApiProfile(models.Model):
+    username = models.CharField(max_length=30)
+    bio = models.TextField()
+    profile_picture = models.ImageField(upload_to='api_pics', default='None')

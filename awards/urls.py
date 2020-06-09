@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.authtoken.views import obtain_auth_token
 # from django.conf.urls import url
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     path('login', LoginView.as_view(), name='login'),
     path('logout', LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
     path('ratings/', include('star_ratings.urls', namespace='ratings',)),
+    path('api-token-auth/', obtain_auth_token)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

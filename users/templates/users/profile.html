@@ -4,9 +4,28 @@
     <div class="container">
         
         <div class="row">
+            <div class="col float-right">
+                <img src="{{user_data.profile_image}}" alt="">
+            </div>
             <div class="col">
             <p>{{user.username}}</p>
             <a href="{% url 'profile_update' %}" class="btn btn-success btn-sm">Update Form</a>      
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            
+                <div class="card" style="width: 350px;">
+                    <img src="{{project.project_image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{project.project_title}}</h5>
+                      <p class="card-text">{{project.project_description}}</p>
+                      <a href="{{project.project_live_link}}">live_link</a>
+                      <p>{{project.project_pub_date}}</p>
+                    </div>
+                  </div>
+                    
             </div>
         </div>
 

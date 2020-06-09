@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'users',
     'bootstrap4',
     'crispy_forms',
-    'star_ratings'
+    'star_ratings',
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -151,3 +153,9 @@ LOGIN_REDIRECT_URL = 'homepage'
 LOGIN_URL = 'login'
 
 STAR_RATINGS_RANGE = 10
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}

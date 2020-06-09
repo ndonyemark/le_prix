@@ -2,6 +2,12 @@ from django.shortcuts import render, redirect
 from .forms import ProjectRegistrationForm
 from .models import Project
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import ApiProfile
+from .serializers import ProfileSerializer
+from rest_framework import status
+from .permissions import IsAdminOrReadOnly
 
 def homepage(request):
     all_projects = Project.get_all_projects()
@@ -66,3 +72,46 @@ def submit_project(request):
     }
 
     return render(request, 'submit_project.html', context)
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profiles = ApiProfile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
+    
+    def post(self, request, format=None):
+        serializers = ProfileSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        permission_classes = (IsAdminOrReadOnly)
+
+class ProfileDescription(APIView):
+    permission_classes = (IsAdminOrReadOnly)
+    def get_profile(self, pk):
+        try:
+            return ApiProfile.objects.get(pk=pk)
+        except ApiProfile.DoesNotExist:
+            return Http404
+    
+    def get(self, request, pk, format=None):
+        profile = self.get_profile(pk)
+        serializers = ProfileSerializer(profile)
+        return Response(serializers.data)
+    
+    def put(self, request, pk, format=None):
+        profile = self.get_profile(pk)
+        serializers = ProfileSerializer(profile, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, pk, format=None):
+        profile = self.get_profile(pk)
+        profile.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
