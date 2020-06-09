@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import ProjectRegistrationForm
 from .models import Project
+from django.contrib.auth.decorators import login_required
 
 def homepage(request):
     all_projects = Project.get_all_projects()
@@ -46,6 +47,7 @@ def search(request):
     }
     return render(request, 'search.html', context)
 
+@login_required
 def submit_project(request):
     current_user = request.user
     if request.method == 'POST':

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, ProfileUpdateForm
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 def user_registration(request):
     if request.method == 'POST':
@@ -13,11 +14,13 @@ def user_registration(request):
     title='user_registration'
     return render(request, 'users/registration.html', {'title': title,'form': registration_form})
 
+@login_required
 def profile(request):
     current_user = request.user
     # user_profile_data = Profile.get_user_profile_data(current_user)
     return render(request, 'users/profile.html')
 
+@login_required
 def profile_update(request):
     current_user = request.user
     if request.method == 'POST':
