@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-mg-12 col-sm-12">
+                <h1 class="text-center">Post Your Project</h1>
+            </div>
+            <div class="col">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-success">Post_project</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

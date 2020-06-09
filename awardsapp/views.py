@@ -12,20 +12,10 @@ def homepage(request):
     return render(request, 'index.html', context)
 
 def post_project(request):
-    current_user = request.user
-    if request.method == 'POST':
-        project_registration_form = ProjectRegistrationForm(request.POST, request.FILES)
-        if project_registration_form.is_valid():
-            project = project_registration_form.save(commit=False)
-            project.project_owner = current_user
-            project.save()
-            return redirect('post_project')
-    else:
-        project_registration_form = ProjectRegistrationForm()
+    
     title = 'Post Project'
     context={
         'title':title,
-        'form': project_registration_form
     }
     return render(request, 'post_project.html', context)
 
@@ -55,3 +45,22 @@ def search(request):
         'message': message
     }
     return render(request, 'search.html', context)
+
+def submit_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        project_registration_form = ProjectRegistrationForm(request.POST, request.FILES)
+        if project_registration_form.is_valid():
+            project = project_registration_form.save(commit=False)
+            project.project_owner = current_user
+            project.save()
+            return redirect('post_project')
+    else:
+        project_registration_form = ProjectRegistrationForm()
+    
+    context={
+        'title': 'submit_project',
+        'form': project_registration_form
+    }
+
+    return render(request, 'submit_project.html', context)
