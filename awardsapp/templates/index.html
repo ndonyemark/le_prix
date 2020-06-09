@@ -29,7 +29,8 @@
                         <div class="card-body">
                           <h5 class="card-title">{{project.project_title}}</h5>
                           <p class="card-text">{{project.project_description}}</p>
-                          <a href="#" class="btn btn-primary">live_link</a>
+                          <a href="{{project.project_live_link}}">live_link</a>
+                          <p>{{project.project_pub_date}}</p>
                           <a href="{% url 'single_project' project_id=project.id %}">view project</a>
                         </div>
                       </div>
